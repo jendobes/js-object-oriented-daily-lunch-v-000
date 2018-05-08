@@ -22,9 +22,11 @@ class Neighborhood {
   }
 
   meals(){
-    let deliveries = store.deliveries.filter(delivery => {
-      delivery.neighborhood() === this
-    })
+     let all = this.deliveries().map(delivery => {
+       return delivery.meal()
+     })
+     let uniqueMeals = [...new Set(all)]
+     return uniqueMeals
   }
 }
 
